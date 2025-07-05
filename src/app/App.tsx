@@ -67,26 +67,30 @@ function App() {
     }
   }, [sdkAudioElement]);
 
-  const { connect, disconnect, sendUserText, sendEvent, interrupt, mute } =
-    useRealtimeSession({
-      onConnectionChange: (s) => setSessionStatus(s as SessionStatus),
-      onAgentHandoff: (agentName: string) => {
-        handoffTriggeredRef.current = true;
-        setSelectedAgentName(agentName);
-      },
-    });
+  const {
+    connect,
+    disconnect,
+    /* sendUserText, */ sendEvent,
+    interrupt,
+    mute,
+  } = useRealtimeSession({
+    onConnectionChange: (s) => setSessionStatus(s as SessionStatus),
+    onAgentHandoff: (agentName: string) => {
+      handoffTriggeredRef.current = true;
+      setSelectedAgentName(agentName);
+    },
+  });
 
   const [sessionStatus, setSessionStatus] =
     useState<SessionStatus>("DISCONNECTED");
 
   const [isPTTUserSpeaking, setIsPTTUserSpeaking] = useState<boolean>(false);
-  const [isAudioPlaybackEnabled, setIsAudioPlaybackEnabled] = useState<boolean>(
-    () => {
+  const [isAudioPlaybackEnabled /* setIsAudioPlaybackEnabled */] =
+    useState<boolean>(() => {
       if (typeof window === "undefined") return true;
       const stored = localStorage.getItem("audioPlaybackEnabled");
       return stored ? stored === "true" : true;
-    }
-  );
+    });
 
   // Initialize the recording hook.
   const { startRecording, stopRecording, downloadRecording } =
