@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 import App from "../App";
 import { TranscriptProvider } from "../contexts/TranscriptContext";
 import { EventProvider } from "../contexts/EventContext";
 
-export default function AppPage() {
+function AppPage() {
   return (
     <EventProvider>
       <TranscriptProvider>
-        <App />
+        <Suspense fallback={<div>Loading...</div>}>
+          <App />
+        </Suspense>
       </TranscriptProvider>
     </EventProvider>
   );
 }
+
+export default AppPage;

@@ -178,7 +178,7 @@ function App() {
         if (!EPHEMERAL_KEY) return;
 
         // Create agents with recipe context if available
-        let agents = [...sdkScenarioMap[agentSetKey]];
+        const agents = [...sdkScenarioMap[agentSetKey]];
 
         // If this is the chatSupervisor scenario and we have recipe data, create the agent with recipe context
         if (agentSetKey === "chatSupervisor" && plaintextRecipeParam) {

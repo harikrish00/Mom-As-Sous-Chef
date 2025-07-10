@@ -11,23 +11,6 @@ interface RecipeData {
   image?: string;
 }
 
-// Helper function to extract text content from HTML
-function extractTextContent(html: string, selector: string): string[] {
-  const regex = new RegExp(
-    `<[^>]*class="[^"]*${selector}[^"]*"[^>]*>([^<]*)</[^>]*>`,
-    "gi"
-  );
-  const matches = html.match(regex);
-  if (!matches) return [];
-
-  return matches
-    .map((match) => {
-      const textMatch = match.match(/>([^<]*)</);
-      return textMatch ? textMatch[1].trim() : "";
-    })
-    .filter((text) => text.length > 0);
-}
-
 // Helper function to extract structured data (JSON-LD)
 function extractStructuredData(html: string): any {
   const scriptRegex =
@@ -53,16 +36,6 @@ function extractStructuredData(html: string): any {
   }
 
   return null;
-}
-
-// Helper function to extract meta tags
-function extractMetaContent(html: string, property: string): string | null {
-  const regex = new RegExp(
-    `<meta[^>]*property="${property}"[^>]*content="([^"]*)"`,
-    "i"
-  );
-  const match = html.match(regex);
-  return match ? match[1] : null;
 }
 
 export async function POST(request: NextRequest) {

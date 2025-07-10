@@ -2,7 +2,7 @@
 import { createChatAgent } from "./index";
 
 // Example 1: Create an agent without recipe context (default behavior)
-const defaultAgent = createChatAgent();
+// const defaultAgent = createChatAgent();
 
 // Example 2: Create an agent with recipe context
 const recipeText = `Chocolate Chip Cookies
@@ -31,8 +31,11 @@ INSTRUCTIONS:
 
 const agentWithRecipe = createChatAgent(recipeText);
 
-// Example 3: Using the agent in a scenario
-export const chatSupervisorWithRecipe = [agentWithRecipe];
+// Example 3: Using the agent in your application
+// The agent will now have the recipe context built into its instructions
+// and can help users cook the chocolate chip cookies step by step
+
+export { agentWithRecipe };
 
 // Example 4: Dynamic recipe injection (as used in App.tsx)
 export function createAgentWithRecipe(recipeText?: string) {
