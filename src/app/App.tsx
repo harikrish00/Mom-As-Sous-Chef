@@ -21,7 +21,10 @@ import { createModerationGuardrail } from "@/app/agentConfigs/guardrails";
 // Agent configs
 import { allAgentSets, defaultAgentSetKey } from "@/app/agentConfigs";
 import { customerServiceRetailScenario } from "@/app/agentConfigs/customerServiceRetail";
-import { chatSupervisorScenario } from "@/app/agentConfigs/chatSupervisor";
+import {
+  chatSupervisorScenario,
+  createChatAgent,
+} from "@/app/agentConfigs/chatSupervisor";
 import { customerServiceRetailCompanyName } from "@/app/agentConfigs/customerServiceRetail";
 import { chatSupervisorCompanyName } from "@/app/agentConfigs/chatSupervisor";
 import { simpleHandoffScenario } from "@/app/agentConfigs/simpleHandoff";
@@ -38,6 +41,8 @@ import { useHandleSessionHistory } from "./hooks/useHandleSessionHistory";
 
 function App() {
   const searchParams = useSearchParams()!;
+  const recipeUrl = searchParams.get("url");
+  const plaintextRecipeParam = searchParams.get("plaintextRecipe");
 
   const { addTranscriptMessage, addTranscriptBreadcrumb } = useTranscript();
   const { logClientEvent, logServerEvent } = useEvent();
@@ -172,8 +177,22 @@ function App() {
         const EPHEMERAL_KEY = await fetchEphemeralKey();
         if (!EPHEMERAL_KEY) return;
 
+        // Create agents with recipe context if available
+        let agents = [...sdkScenarioMap[agentSetKey]];
+
+        // If this is the chatSupervisor scenario and we have recipe data, create the agent with recipe context
+        if (agentSetKey === "chatSupervisor" && plaintextRecipeParam) {
+          try {
+            const decodedRecipe = decodeURIComponent(plaintextRecipeParam);
+            // Replace the first agent (chatAgent) with one that has recipe context
+            agents[0] = createChatAgent(decodedRecipe);
+          } catch (error) {
+            console.error("Error decoding recipe:", error);
+          }
+        }
+
         // Ensure the selectedAgentName is first so that it becomes the root
-        const reorderedAgents = [...sdkScenarioMap[agentSetKey]];
+        const reorderedAgents = [...agents];
         const idx = reorderedAgents.findIndex(
           (a) => a.name === selectedAgentName
         );
@@ -337,6 +356,11 @@ function App() {
           </div>
           <div>
             Realtime API <span className="text-gray-500">Agents</span>
+            {recipeUrl && (
+              <div className="text-sm font-normal text-gray-600 mt-1">
+                Recipe: {recipeUrl}
+              </div>
+            )}
           </div>
         </div>
         <div className="flex items-center gap-4">
