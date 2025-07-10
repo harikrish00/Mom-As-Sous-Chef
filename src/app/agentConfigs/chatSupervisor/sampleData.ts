@@ -1,132 +1,146 @@
 export const exampleAccountInfo = {
-  accountId: "NT-123456",
+  userId: "COOK-123456",
   name: "Alex Johnson",
   phone: "+1-206-135-1246",
   email: "alex.johnson@email.com",
-  plan: "Unlimited Plus",
-  balanceDue: "$42.17",
-  lastBillDate: "2024-05-15",
-  lastPaymentDate: "2024-05-20",
-  lastPaymentAmount: "$42.17",
-  status: "Active",
-  address: {
-    street: "1234 Pine St",
-    city: "Seattle",
-    state: "WA",
-    zip: "98101"
+  cookingLevel: "Intermediate",
+  dietaryRestrictions: ["None"],
+  favoriteCuisine: "Italian",
+  kitchenEquipment: ["Stand Mixer", "Food Processor", "Dutch Oven"],
+  lastCookingSession: "2024-05-15",
+  totalRecipesCooked: 45,
+  preferences: {
+    spiceLevel: "Medium",
+    cookingTime: "30-60 minutes",
+    servings: "4-6 people",
   },
-  lastBillDetails: {
-    basePlan: "$30.00",
-    internationalCalls: "$8.00",
-    dataOverage: "$4.00",
-    taxesAndFees: "$0.17",
-    notes: "Higher than usual due to international calls and data overage."
-  }
 };
 
 export const examplePolicyDocs = [
   {
-    id: "ID-010",
-    name: "Family Plan Policy",
-    topic: "family plan options",
+    id: "COOK-001",
+    name: "Basic Cooking Safety",
+    topic: "cooking safety",
     content:
-      "The family plan allows up to 5 lines per account. All lines share a single data pool. Each additional line after the first receives a 10% discount. All lines must be on the same account.",
+      "Always wash your hands before handling food. Keep raw meat separate from other ingredients. Use a food thermometer to ensure meats are cooked to safe temperatures. Never leave cooking food unattended on the stove.",
   },
   {
-    id: "ID-020",
-    name: "Promotions and Discounts Policy",
-    topic: "promotions and discounts",
+    id: "COOK-002",
+    name: "Knife Safety Guidelines",
+    topic: "knife safety",
     content:
-      "The Summer Unlimited Data Sale provides a 20% discount on the Unlimited Plus plan for the first 6 months for new activations completed by July 31, 2024. The Refer-a-Friend Bonus provides a $50 bill credit to both the referring customer and the new customer after 60 days of active service, for activations by August 31, 2024. A maximum of 5 referral credits may be earned per account. Discounts cannot be combined with other offers.",
+      "Always use a sharp knife - dull knives are more dangerous. Keep your fingers curled under when cutting. Use a cutting board that won't slip. Store knives in a knife block or sheath when not in use.",
   },
   {
-    id: "ID-030",
-    name: "International Plans Policy",
-    topic: "international plans",
+    id: "COOK-003",
+    name: "Temperature Guidelines",
+    topic: "cooking temperatures",
     content:
-      "International plans are available and include discounted calling, texting, and data usage in over 100 countries.",
+      "Chicken and turkey: 165°F (74°C). Ground beef: 160°F (71°C). Fish: 145°F (63°C). Pork: 145°F (63°C). Let meat rest for 3 minutes after cooking.",
   },
   {
-    id: "ID-040",
-    name: "Handset Offers Policy",
-    topic: "new handsets",
+    id: "COOK-004",
+    name: "Ingredient Substitution Guide",
+    topic: "ingredient substitutions",
     content:
-      "Handsets from brands such as iPhone and Google are available. The iPhone 16 is $200 and the Google Pixel 8 is available for $0, both with an additional 18-month commitment. These offers are valid while supplies last and may require eligible plans or trade-ins. For more details, visit one of our stores.",
+      "Butter: Use equal parts oil or margarine. Eggs: 1/4 cup applesauce or 1 tablespoon ground flaxseed + 3 tablespoons water per egg. Milk: Use almond, soy, or oat milk in equal amounts. Flour: 1 cup all-purpose = 1 cup whole wheat (may need more liquid).",
+  },
+  {
+    id: "COOK-005",
+    name: "Cooking Techniques",
+    topic: "cooking techniques",
+    content:
+      "Sauté: Cook quickly over high heat with small amount of oil. Simmer: Cook in liquid just below boiling point. Braise: Brown meat, then cook slowly in liquid. Roast: Cook uncovered in oven with dry heat. Steam: Cook food over boiling water.",
   },
 ];
 
 export const exampleStoreLocations = [
-  // NorCal
   {
-    name: "NewTelco San Francisco Downtown Store",
-    address: "1 Market St, San Francisco, CA",
-    zip_code: "94105",
-    phone: "(415) 555-1001",
-    hours: "Mon-Sat 10am-7pm, Sun 11am-5pm"
+    name: "Fresh Market Grocery",
+    address: "123 Main St, Seattle, WA",
+    zip_code: "98101",
+    phone: "(206) 555-0101",
+    hours: "Mon-Sat 7am-10pm, Sun 8am-9pm",
+    specialties: ["Organic produce", "Local meats", "Bulk spices"],
   },
   {
-    name: "NewTelco San Jose Valley Fair Store",
-    address: "2855 Stevens Creek Blvd, Santa Clara, CA",
-    zip_code: "95050",
-    phone: "(408) 555-2002",
-    hours: "Mon-Sat 10am-8pm, Sun 11am-6pm"
+    name: "Kitchen Supply Co.",
+    address: "456 Oak Ave, Seattle, WA",
+    zip_code: "98102",
+    phone: "(206) 555-0202",
+    hours: "Mon-Fri 9am-6pm, Sat 10am-5pm, Sun Closed",
+    specialties: [
+      "Professional cookware",
+      "Baking supplies",
+      "Kitchen gadgets",
+    ],
   },
   {
-    name: "NewTelco Sacramento Midtown Store",
-    address: "1801 L St, Sacramento, CA",
-    zip_code: "95811",
-    phone: "(916) 555-3003",
-    hours: "Mon-Sat 10am-7pm, Sun 12pm-5pm"
-  },
-  // SoCal
-  {
-    name: "NewTelco Los Angeles Hollywood Store",
-    address: "6801 Hollywood Blvd, Los Angeles, CA",
-    zip_code: "90028",
-    phone: "(323) 555-4004",
-    hours: "Mon-Sat 10am-9pm, Sun 11am-7pm"
+    name: "Asian Market",
+    address: "789 Pine St, Seattle, WA",
+    zip_code: "98103",
+    phone: "(206) 555-0303",
+    hours: "Mon-Sun 9am-8pm",
+    specialties: ["Asian ingredients", "Fresh seafood", "Rice varieties"],
   },
   {
-    name: "NewTelco San Diego Gaslamp Store",
-    address: "555 5th Ave, San Diego, CA",
-    zip_code: "92101",
-    phone: "(619) 555-5005",
-    hours: "Mon-Sat 10am-8pm, Sun 11am-6pm"
+    name: "Farmers Market",
+    address: "321 Market Pl, Seattle, WA",
+    zip_code: "98104",
+    phone: "(206) 555-0404",
+    hours: "Sat-Sun 8am-3pm",
+    specialties: ["Local produce", "Artisan breads", "Fresh herbs"],
   },
   {
-    name: "NewTelco Irvine Spectrum Store",
-    address: "670 Spectrum Center Dr, Irvine, CA",
-    zip_code: "92618",
-    phone: "(949) 555-6006",
-    hours: "Mon-Sat 10am-8pm, Sun 11am-6pm"
-  },
-  // East Coast
-  {
-    name: "NewTelco New York City Midtown Store",
-    address: "350 5th Ave, New York, NY",
-    zip_code: "10118",
-    phone: "(212) 555-7007",
-    hours: "Mon-Sat 9am-8pm, Sun 10am-6pm"
+    name: "Bulk Food Store",
+    address: "654 Grain St, Seattle, WA",
+    zip_code: "98105",
+    phone: "(206) 555-0505",
+    hours: "Mon-Sat 8am-8pm, Sun 9am-6pm",
+    specialties: ["Bulk ingredients", "Grains", "Nuts and seeds"],
   },
   {
-    name: "NewTelco Boston Back Bay Store",
-    address: "800 Boylston St, Boston, MA",
-    zip_code: "02199",
-    phone: "(617) 555-8008",
-    hours: "Mon-Sat 10am-7pm, Sun 12pm-6pm"
+    name: "Butcher Shop",
+    address: "987 Meat Ave, Seattle, WA",
+    zip_code: "98106",
+    phone: "(206) 555-0606",
+    hours: "Mon-Sat 8am-6pm, Sun Closed",
+    specialties: ["Premium meats", "Custom cuts", "House-made sausages"],
   },
   {
-    name: "NewTelco Washington DC Georgetown Store",
-    address: "1234 Wisconsin Ave NW, Washington, DC",
-    zip_code: "20007",
-    phone: "(202) 555-9009",
-    hours: "Mon-Sat 10am-7pm, Sun 12pm-5pm"
+    name: "Bakery Supply",
+    address: "147 Flour St, Seattle, WA",
+    zip_code: "98107",
+    phone: "(206) 555-0707",
+    hours: "Mon-Fri 7am-5pm, Sat 8am-4pm, Sun Closed",
+    specialties: [
+      "Baking ingredients",
+      "Cake decorating",
+      "Bread making supplies",
+    ],
   },
   {
-    name: "NewTelco Miami Beach Store",
-    address: "1601 Collins Ave, Miami Beach, FL",
-    zip_code: "33139",
-    phone: "(305) 555-1010",
-    hours: "Mon-Sat 10am-8pm, Sun 11am-6pm"
-  }
+    name: "Spice Merchant",
+    address: "258 Spice Rd, Seattle, WA",
+    zip_code: "98108",
+    phone: "(206) 555-0808",
+    hours: "Mon-Sat 10am-6pm, Sun 11am-5pm",
+    specialties: ["Whole spices", "Seasoning blends", "Tea varieties"],
+  },
+  {
+    name: "Cheese Shop",
+    address: "369 Dairy Dr, Seattle, WA",
+    zip_code: "98109",
+    phone: "(206) 555-0909",
+    hours: "Mon-Sat 10am-7pm, Sun 11am-6pm",
+    specialties: ["Artisan cheeses", "Dairy products", "Wine pairings"],
+  },
+  {
+    name: "Seafood Market",
+    address: "741 Fish Way, Seattle, WA",
+    zip_code: "98110",
+    phone: "(206) 555-1010",
+    hours: "Mon-Sat 8am-7pm, Sun 9am-5pm",
+    specialties: ["Fresh seafood", "Shellfish", "Sushi-grade fish"],
+  },
 ];
